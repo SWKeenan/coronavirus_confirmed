@@ -3,6 +3,12 @@ import Link from 'next/link';
 import Head from 'next/head';
 import styles from '../styles/Slug.module.css';
 import LineChart from '../components/LineChart';
+import dynamic from 'next/dynamic';
+
+const Map = dynamic(() => import('../components/Map'), {
+loading: () => <p>A map is loading</p>,
+  ssr: false
+});
 
 export default function Slug({ countryMonth, country }) {
     return (
@@ -24,7 +30,8 @@ export default function Slug({ countryMonth, country }) {
             </div>
             <div className={styles.twoContainers}>
                 <div className={styles.leftContainer}>
-                    <img className={styles.worldMap} src={"https://geology.com/world/map/map-of-" + country.Slug + ".gif"} alt="World Map Location" />
+                    <Map countryMonth={countryMonth[0]} />
+                    {/* <img className={styles.worldMap} src={"https://geology.com/world/map/map-of-" + country.Slug + ".gif"} alt="World Map Location" /> */}
                     <p className={styles.countryCode}>Country Code: <span>{country.CountryCode}</span></p>
                     <div className={styles.newTotal}>
                         <div>
