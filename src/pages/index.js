@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link';
 
 export default function Home({ data, countries }) {
   console.log(countries);
@@ -17,6 +18,7 @@ export default function Home({ data, countries }) {
       <div className={styles.countriesPassed}>
         {countries.map(country =>{
           return(
+          <Link href={"/" + country.Slug}><a>
           <div key={country.ID} className={styles.countryItem}>
             <img src={"https://flagcdn.com/" + country.CountryCode.toLowerCase() + ".svg"} alt="test" />
             <p className={styles.countryTitle}>{country.Country} ({country.CountryCode})</p>
@@ -26,6 +28,7 @@ export default function Home({ data, countries }) {
               <span className={styles.textInfo}>Recovered <span className={styles.numbersInfo}>{country.TotalRecovered}</span></span>
             </div>
           </div>
+          </a></Link>
         )
         })}
       </div>
@@ -33,30 +36,11 @@ export default function Home({ data, countries }) {
   )
 }
 
-async function getCountries () {
-  const res = await fetch(`https://api.covid19api.com/summary`)
-  const data2 = await res.json()
-  const countries = await data2.Countries.filter(country => country.TotalConfirmed < 5000);
-  return countries
-}
-
-// async function getCountry (countries) {
-//   const country = await Promise.all(
-//     countries.map(async (item) => {
-//       const res1 = await fetch(`https://api.covid19api.com/total/country/${item.CountryCode}/status/confirmed?from=2021-03-01T00:00:00Z&to=2021-04-01T00:00:00Z`)
-//       const total = await res1.json()
-//       return total
-//     })
-//   )
-//   return country
-// }
-
 export async function getStaticProps(context) {
   const res3 = await fetch(`https://api.covid19api.com/summary`)
   const data = await res3.json()
-  const countries = await getCountries()
+  const countries = await data.Countries.filter(country => country.TotalConfirmed < 5000);
   countries.sort((a, b) => (a.TotalConfirmed > b.TotalConfirmed) ? 1 : -1)
-  // const country = await getCountry(countries) 
 
   return {
     props: { data, countries }

@@ -1,0 +1,71 @@
+.banner {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+}
+
+.banner img {
+  height: 30vh;
+  width: 100%;
+  object-fit: cover;
+  max-width: 1600px;
+}
+
+.container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.countryTitle {
+  text-align: center;
+  font-size: 28px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 700;
+}
+
+.twoContainers {
+  display: flex;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.backButton {
+  background-color: #000;
+  border: #fff 2px solid;
+  box-sizing: border-box;
+  display: inline;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.backButton img {
+  height: 20px;
+  width: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.countryCode {
+  text-align: center;
+}
+
+.newTotal {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.leftContainer,
+.rightContainer {
+  box-sizing: border-box;
+  margin: 10px 5px;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 18px;
+}
