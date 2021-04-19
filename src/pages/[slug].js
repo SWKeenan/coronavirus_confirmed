@@ -5,7 +5,6 @@ import styles from '../styles/Slug.module.css';
 import LineChart from '../components/LineChart';
 
 export default function Slug({ countryMonth, country }) {
-    console.log(country);
     return (
         <div className={styles.container}>
         <Head>
@@ -25,8 +24,7 @@ export default function Slug({ countryMonth, country }) {
             </div>
             <div className={styles.twoContainers}>
                 <div className={styles.leftContainer}>
-                    {country.Slug == 'lao-pdr' ? <img className={styles.worldMap} src={"https://ontheworldmap.com/laos/laos-location-map.jpg"} alt="World Map Location" /> : 
-                     country.Slug == 'holy-see-vatican-city-state' ? <img className={styles.worldMap} src={"https://ontheworldmap.com/vatican-city/vatican-city-location-map.jpg"} alt="World Map Location" /> : <img className={styles.worldMap} src={"https://ontheworldmap.com/" + country.Slug + "/" + country.Slug + "-location-map.jpg"} alt="World Map Location" />}
+                    <img className={styles.worldMap} src={"https://ontheworldmap.com/" + country.Slug + "/" + country.Slug + "-location-map.jpg"} alt="World Map Location" />
                     <p className={styles.countryCode}>Country Code: <span>{country.CountryCode}</span></p>
                     <div className={styles.newTotal}>
                         <div>
@@ -74,7 +72,7 @@ export async function getServerSideProps({ params }) {
     let previousMonth = new Date(data.Date.split('T')[0]);
     previousMonth.setMonth(previousMonth.getMonth() - 1);
     previousMonth = JSON.stringify(previousMonth).split('T')[0].replace('"','');
-    const res1 = await fetch(`https://api.covid19api.com/total/country/${params.slug}/status/confirmed?from=${previousMonth}T00:00:00Z&to=${data.Date.split('T')[0]}T00:00:00Z`)
+    const res1 = await fetch(`https://api.covid19api.com/country/${params.slug}/status/confirmed?from=${previousMonth}T00:00:00Z&to=${data.Date.split('T')[0]}T00:00:00Z`)
     const countryMonth = await res1.json()
     const country = await data.Countries.filter(country => country.Slug == params.slug);
 
