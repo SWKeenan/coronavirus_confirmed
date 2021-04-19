@@ -8,7 +8,6 @@ const ICON = icon({
 })
 
 const Map = ({ countryMonth }) => {
-    console.log(countryMonth)
   return (
     <MapContainer center={[countryMonth.Lat, countryMonth.Lon]} zoom={1} scrollWheelZoom={false} style={{height: 200, width: "100%"}}>
       <TileLayer
