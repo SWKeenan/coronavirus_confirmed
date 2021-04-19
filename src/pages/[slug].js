@@ -15,7 +15,7 @@ export default function Slug({ countryMonth, country }) {
         <div className={styles.container}>
         <Head>
             <title>{ country.Country }</title>
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href={"https://flagcdn.com/" + country.CountryCode.toLowerCase() + ".svg"} />
         </Head>
         <div className={styles.banner}>
             <img src={"https://flagcdn.com/" + country.CountryCode.toLowerCase() + ".svg"} alt="test" />
