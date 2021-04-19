@@ -56,18 +56,18 @@ async function getCountries () {
     return countries
   }
 
-export const getStaticPaths = async () =>{
-    const countries = await getCountries()
-    const paths = countries.map(country => ({
-        params: {slug: `${country.Slug}`}
-    }));
-    return {
-        paths,
-        fallback: false,
-    }
-}
+// export const getStaticPaths = async () =>{
+//     const countries = await getCountries()
+//     const paths = countries.map(country => ({
+//         params: {slug: `${country.Slug}`}
+//     }));
+//     return {
+//         paths,
+//         fallback: false,
+//     }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     const res = await fetch(`https://api.covid19api.com/summary`)
     const data2 = await res.json()
     let previousMonth = new Date(data2.Date.split('T')[0]);

@@ -36,7 +36,7 @@ export default function Home({ data, countries }) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const res3 = await fetch(`https://api.covid19api.com/summary`)
   const data = await res3.json()
   const countries = await data.Countries.filter(country => country.TotalConfirmed < 5000);
