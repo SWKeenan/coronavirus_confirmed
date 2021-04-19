@@ -5,8 +5,6 @@ import styles from '../styles/Slug.module.css';
 import LineChart from '../components/LineChart';
 
 export default function Slug({ countryMonth, country, previousMonth }) {
-    console.log(previousMonth)
-    console.log(country)
     return (
         <>
         <Head>
