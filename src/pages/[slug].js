@@ -24,7 +24,7 @@ export default function Slug({ countryMonth, country }) {
             </div>
             <div className={styles.twoContainers}>
                 <div className={styles.leftContainer}>
-                    <img className={styles.worldMap} src={"https://geology.com/world/map/map-of-" + country.Slug + ".gif"} alt="World Map Location" />
+                    <img className={styles.worldMap} src={"https://ontheworldmap.com/" + country.Slug + "/" + country.Slug + "-location-map.jpg"} alt="World Map Location" />
                     <p className={styles.countryCode}>Country Code: <span>{country.CountryCode}</span></p>
                     <div className={styles.newTotal}>
                         <div>
