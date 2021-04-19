@@ -6,7 +6,7 @@ import LineChart from '../components/LineChart';
 
 export default function Slug({ countryMonth, country }) {
     return (
-        <>
+        <div className={styles.container}>
         <Head>
             <title>{ country.Country }</title>
             <link rel="icon" href="/favicon.ico" />
@@ -14,7 +14,7 @@ export default function Slug({ countryMonth, country }) {
         <div className={styles.banner}>
             <img src={"https://flagcdn.com/" + country.CountryCode.toLowerCase() + ".svg"} alt="test" />
         </div>
-        <div className={styles.container}>
+        <div className={styles.contents}>
             <div className={styles.countryTitle}>
                 <Link href="/"><a>
                     <div className={styles.backButton}>
@@ -24,6 +24,8 @@ export default function Slug({ countryMonth, country }) {
             </div>
             <div className={styles.twoContainers}>
                 <div className={styles.leftContainer}>
+                    {country.Slug == 'lao-pdr' ? <img className={styles.worldMap} src={"http://ontheworldmap.com/laos/laos-location-map.jpg"} alt="World Map Location" /> : 
+                     country.Slug == 'holy-see-vatican-city-state' ? <img className={styles.worldMap} src={"http://ontheworldmap.com/vatican-city/vatican-city-location-map.jpg"} alt="World Map Location" /> : <img className={styles.worldMap} src={"http://ontheworldmap.com/" + country.Slug + "/" + country.Slug + "-location-map.jpg"} alt="World Map Location" />}
                     <p className={styles.countryCode}>Country Code: <span>{country.CountryCode}</span></p>
                     <div className={styles.newTotal}>
                         <div>
@@ -43,16 +45,16 @@ export default function Slug({ countryMonth, country }) {
                 </div>
             </div>
         </div>
-        </>
+        </div>
     )
 }
 
-async function getCountries () {
-    const res = await fetch(`https://api.covid19api.com/summary`)
-    const data2 = await res.json()
-    const countries = await data2.Countries.filter(country => country.TotalConfirmed < 5000);
-    return countries
-  }
+// async function getCountries () {
+//     const res = await fetch(`https://api.covid19api.com/summary`)
+//     const data = await res.json()
+//     const countries = await data.Countries.filter(country => country.TotalConfirmed < 5000);
+//     return countries
+//   }
 
 // export const getStaticPaths = async () =>{
 //     const countries = await getCountries()
@@ -67,13 +69,13 @@ async function getCountries () {
 
 export async function getServerSideProps({ params }) {
     const res = await fetch(`https://api.covid19api.com/summary`)
-    const data2 = await res.json()
-    let previousMonth = new Date(data2.Date.split('T')[0]);
+    const data = await res.json()
+    let previousMonth = new Date(data.Date.split('T')[0]);
     previousMonth.setMonth(previousMonth.getMonth() - 1);
     previousMonth = JSON.stringify(previousMonth).split('T')[0].replace('"','');
-    const res1 = await fetch(`https://api.covid19api.com/total/country/${params.slug}/status/confirmed?from=${previousMonth}T00:00:00Z&to=${data2.Date.split('T')[0]}T00:00:00Z`)
+    const res1 = await fetch(`https://api.covid19api.com/total/country/${params.slug}/status/confirmed?from=${previousMonth}T00:00:00Z&to=${data.Date.split('T')[0]}T00:00:00Z`)
     const countryMonth = await res1.json()
-    const country = await data2.Countries.filter(country => country.Slug == params.slug);
+    const country = await data.Countries.filter(country => country.Slug == params.slug);
 
   
     return {

@@ -11,6 +11,11 @@
 }
 
 .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contents {
   height: 70vh;
   display: flex;
   flex-direction: column;
@@ -34,6 +39,12 @@
   justify-content: center;
 }
 
+.rightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .backButton {
   background-color: #000;
   border: #fff 2px solid;
@@ -47,6 +58,10 @@
   height: 20px;
   width: 40px;
   filter: brightness(0) invert(1);
+}
+
+.worldMap {
+  width: 100%;
 }
 
 .countryCode {

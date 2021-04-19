@@ -36,8 +36,8 @@ export default function Home({ data, countries }) {
 }
 
 export async function getServerSideProps(context) {
-  const res3 = await fetch(`https://api.covid19api.com/summary`)
-  const data = await res3.json()
+  const res = await fetch(`https://api.covid19api.com/summary`)
+  const data = await res.json()
   const countries = await data.Countries.filter(country => country.TotalConfirmed < 5000);
   countries.sort((a, b) => (a.TotalConfirmed > b.TotalConfirmed) ? 1 : -1)
 
