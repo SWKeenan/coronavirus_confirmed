@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import styles from '../styles/Slug.module.css';
 import LineChart from '../components/LineChart';
 
