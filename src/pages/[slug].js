@@ -8,6 +8,10 @@ export default function Slug({ countryMonth, country, previousMonth }) {
     console.log(country)
     return (
         <>
+        <Head>
+            <title>{ country.Country }</title>
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
         <div className={styles.banner}>
             <img src={"https://flagcdn.com/" + country.CountryCode.toLowerCase() + ".svg"} alt="test" />
         </div>
