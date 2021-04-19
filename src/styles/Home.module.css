@@ -25,8 +25,11 @@
 }
 
 .countriesPassed {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0px 20px;
   height: 90vh;
 }
 
@@ -47,6 +50,7 @@
 
 .countryItem:hover {
   transform: translateY(-10px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 2);
 }
 
 .countryItem img {
@@ -94,20 +98,12 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .countriesPassed {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .headersInfo {
     font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 550px) {
-  .countriesPassed {
-    grid-template-columns: 1fr;
-  }
-
   .headersInfo {
     font-size: 10px;
     text-align: center;
