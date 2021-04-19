@@ -69,3 +69,22 @@
   border-radius: 10px;
   font-size: 18px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .twoContainers {
+    flex-direction: column;
+  }
+
+  .leftContainer,
+  .rightContainer {
+    margin: 5px 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .newTotal {
+    flex-direction: column;
+    font-weight: 700;
+    text-align: center;
+  }
+}
