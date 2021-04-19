@@ -6,14 +6,14 @@ export default function Home({ data, countries }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Coronavirus Countries</title>
+        <title>Lowest Covid Countries</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.headersInfo}>
         <p>Latest Update: {data.Date.split('T')[0]}</p>
         <p>Countries Currently Less Than 5000 Confirmed Infections: {countries.length}</p>
       </div>
-      <p className={styles.headersTitle}>Countries with Lowest Confirmed Infections</p>
+      <p className={styles.headersTitle}>Countries with Lowest Confirmed Covid Infections</p>
       <div className={styles.countriesPassed}>
         {countries.map(country =>{
           return(

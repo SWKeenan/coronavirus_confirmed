@@ -25,8 +25,8 @@ export default function Slug({ countryMonth, country }) {
             </div>
             <div className={styles.twoContainers}>
                 <div className={styles.leftContainer}>
-                    {country.Slug == 'lao-pdr' ? <img className={styles.worldMap} src={"http://ontheworldmap.com/laos/laos-location-map.jpg"} alt="World Map Location" /> : 
-                     country.Slug == 'holy-see-vatican-city-state' ? <img className={styles.worldMap} src={"http://ontheworldmap.com/vatican-city/vatican-city-location-map.jpg"} alt="World Map Location" /> : <img className={styles.worldMap} src={"http://ontheworldmap.com/" + country.Slug + "/" + country.Slug + "-location-map.jpg"} alt="World Map Location" />}
+                    {country.Slug == 'lao-pdr' ? <img className={styles.worldMap} src={"https://ontheworldmap.com/laos/laos-location-map.jpg"} alt="World Map Location" /> : 
+                     country.Slug == 'holy-see-vatican-city-state' ? <img className={styles.worldMap} src={"https://ontheworldmap.com/vatican-city/vatican-city-location-map.jpg"} alt="World Map Location" /> : <img className={styles.worldMap} src={"https://ontheworldmap.com/" + country.Slug + "/" + country.Slug + "-location-map.jpg"} alt="World Map Location" />}
                     <p className={styles.countryCode}>Country Code: <span>{country.CountryCode}</span></p>
                     <div className={styles.newTotal}>
                         <div>
