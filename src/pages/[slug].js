@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styles from '../styles/Slug.module.css';
 import LineChart from '../components/LineChart';
 
-export default function Slug({ countryMonth, country, previousMonth }) {
+export default function Slug({ countryMonth, country }) {
     return (
         <>
         <Head>
@@ -77,6 +77,6 @@ export async function getServerSideProps({ params }) {
 
   
     return {
-      props: { countryMonth, country: country[0], previousMonth }
+      props: { countryMonth, country: country[0] }
     }
   }
