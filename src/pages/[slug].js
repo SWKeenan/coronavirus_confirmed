@@ -5,6 +5,7 @@ import styles from '../styles/Slug.module.css';
 import LineChart from '../components/LineChart';
 
 export default function Slug({ countryMonth, country }) {
+    console.log(country);
     return (
         <div className={styles.container}>
         <Head>

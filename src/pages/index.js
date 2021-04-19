@@ -17,8 +17,8 @@ export default function Home({ data, countries }) {
       <div className={styles.countriesPassed}>
         {countries.map(country =>{
           return(
-          <Link href={"/" + country.Slug}><a>
-          <div key={country.ID} className={styles.countryItem}>
+          <Link key={country.ID} href={"/" + country.Slug}><a>
+          <div className={styles.countryItem}>
             <img src={"https://flagcdn.com/" + country.CountryCode.toLowerCase() + ".svg"} alt="test" />
             <p className={styles.countryTitle}>{country.Country} ({country.CountryCode})</p>
             <div className={styles.countryInfo}>
