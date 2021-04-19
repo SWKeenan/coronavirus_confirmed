@@ -16,7 +16,7 @@ const Map = ({ countryMonth }) => {
       />
       <Marker icon={ICON} position={[countryMonth.Lat, countryMonth.Lon]}>
         <Popup>
-          {countryMonth.Country} is here. 
+          {countryMonth.Country} is located here. 
         </Popup>
       </Marker>
     </MapContainer>
